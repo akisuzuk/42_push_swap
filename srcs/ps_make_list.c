@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:22:02 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/12/16 16:50:40 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/17 15:42:29 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ t_ps_list	*ft_create_elem(int num)
 	t_ps_list	*ret;
 
 	ret = (t_ps_list *)malloc(sizeof(t_ps_list));
-	(*ret).prev = null;
-	(*ret).next = null;
-	(*ret).data = data;
+	(*ret).prev = NULL;
+	(*ret).next = NULL;
+	(*ret).num = 0;
 	return (ret);
 	// もし最後の要素だったら、先頭のノードのprevに最後のノードを割り当てる
 }
