@@ -6,11 +6,9 @@
 #    By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 00:50:45 by akisuzuk          #+#    #+#              #
-#    Updated: 2023/12/17 15:54:11 by akisuzuk         ###   ########.fr        #
+#    Updated: 2023/12/17 15:55:24 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-# せっかくなのでfcleanでlibftフォルダ内の.oとかも消したいので、onedriveのメモ参照
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
