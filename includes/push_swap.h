@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 01:00:58 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/12/16 16:48:40 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/17 15:51:03 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <math.h>
-//# include <climits> // ubuntuではいけたけどmacだと弾かれるな
+//# include <climits> // not for C but CPP 
 # include <limits.h>
 # include <stdbool.h>
 # include <stdarg.h>
