@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 00:59:14 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/12/27 19:45:41 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/27 20:17:03 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@ t_ps_list	*make_stc_a(int c, char *v)
 	i++;
 	while (i < c)
 	{
-		{	
-			ft_list_push_front(&ret, ft_atoi(v[i]));
-			i++;
-		}
+		ft_list_push_back(&ret, ft_atoi(v[i]));
 		i++;
+		if (i == c)
+		{
+			// 循環リストにする
+			// https://note.com/ayumi_kat/n/n44ec3336dac4
+		}
 	}
+	return (ret);
 }
 
 int	main(int argc, char **argv)
@@ -59,5 +62,7 @@ int	main(int argc, char **argv)
 	}	
 	stc_a = make_stc_a (argc, argv);
 	stc_b = ;
+	free(stc_a);
+	free(stc_b);
 	return (0);
 }
