@@ -6,11 +6,9 @@
 /*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:22:02 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/12/27 20:09:13 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:36:20 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// 全体的にpiscine CPC12のリストの問題を参照
 
 #include "../includes/push_swap.h"
 
@@ -19,6 +17,8 @@ t_ps_list	*ft_create_elem(int num)
 	t_ps_list	*ret;
 
 	ret = (t_ps_list *)malloc(sizeof(t_ps_list));
+	if (ret == NULL)
+		exit(1);
 	(*ret).prev = NULL;
 	(*ret).next = NULL;
 	(*ret).value = num;
@@ -41,11 +41,11 @@ void	ft_list_push_back(t_ps_list **ex_list, void *data)
 	t_ps_list	*last;
 
 	back_elem = ft_create_elem(data);
-	last = ft_ps_list_last(*ex_list);
+	last = ft_last_list(*ex_list);
 	(*last).next = back_elem;
 }
 
-int	ft_ps_list_size(t_ps_list *ex_list)
+int	ft_list_size(t_ps_list *ex_list)
 {
 	int		cnt;
 
@@ -58,7 +58,7 @@ int	ft_ps_list_size(t_ps_list *ex_list)
 	return (cnt);
 }
 
-t_ps_list	*ft_ps_list_last(t_ps_list *ex_list)
+t_ps_list	*ft_last_list(t_ps_list *ex_list)
 {
 	t_ps_list	*prev_list;
 
@@ -69,3 +69,52 @@ t_ps_list	*ft_ps_list_last(t_ps_list *ex_list)
 	}
 	return (prev_list);
 }
+
+// 上のft_list_last使えば循環リスト行けそう、最初のノードをtempに入れといて
+// ループの最後のノードのnextにtempをブチ込む
+void	*ft_change_to_circular_list(t_ps_list *ex_list)
+{
+	t_ps_list	*head;
+	t_ps_list	*tail;
+
+	if (ex_list == NULL)
+		return ;
+	head = ex_list;
+	tail = ft_last_list(ex_list);
+	(*tail).next = head;
+}
+
+// 循環リストをクリア
+void	*ft_clear_circular_list(t_ps_list *ex_list)
+{
+	t_ps_list	*p;
+	t_ps_list	*prev;
+
+	p = (*ex_list).next;
+	prev = ex_list;
+	while (p != ex_list)
+	{
+		(*prev).next = (*p).next;
+		free (p);
+		p = (*prev).next;
+	}	
+}
+
+// 線形リストをクリア
+// 下記↓参考に、編集中
+// https://programming-place.net/ppp/contents/algorithm/data_struct/003.html#library
+//void	*ft_clear_linear_list(t_ps_list *ex_list)
+//{
+//	t_ps_list	*p;
+//	t_ps_list	*prev;
+//
+//	p = (*ex_list).next;
+//	prev = ex_list;
+//	while (p != ex_list)
+//	{
+//		(*prev).next = (*p).next;
+//		free (p);
+//		p = (*prev).next;
+//	}
+//}
+
