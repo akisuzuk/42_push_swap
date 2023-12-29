@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:22:02 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/12/28 18:36:20 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/29 16:57:12 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_ps_list	*ft_last_list(t_ps_list *ex_list)
 
 // 上のft_list_last使えば循環リスト行けそう、最初のノードをtempに入れといて
 // ループの最後のノードのnextにtempをブチ込む
-void	*ft_change_to_circular_list(t_ps_list *ex_list)
+void	ft_make_circular(t_ps_list *ex_list)
 {
 	t_ps_list	*head;
 	t_ps_list	*tail;
@@ -85,7 +85,7 @@ void	*ft_change_to_circular_list(t_ps_list *ex_list)
 }
 
 // 循環リストをクリア
-void	*ft_clear_circular_list(t_ps_list *ex_list)
+void	ft_clear_circular_list(t_ps_list *ex_list)
 {
 	t_ps_list	*p;
 	t_ps_list	*prev;

@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 00:59:14 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/12/28 14:00:41 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/29 17:39:36 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,18 @@ t_ps_list	*make_stc_a(int c, char *v)
 	t_ps_list	*ret;
 
 	i = 0;
-	ret = ft_create_elem(ft_atoi(v[i]));
+	// 先頭は番兵ノード
+	// 番兵ノードとわかるようにnull入れたけど、素直にprevとnextだけ持ってる構造体にした方がいいかも。。。
+	ret = ft_create_elem(NULL);
 	i++;
-	while (i < c)
+	while (i < c - 1)
 	{
 		ft_list_push_back(&ret, ft_atoi(v[i]));
 		i++;
 		if (i == c)
 		{
 			// 循環リストにする
-			// https://note.com/ayumi_kat/n/n44ec3336dac4
+			ft_make_circular(ret);	
 		}
 	}
 	return (ret);
