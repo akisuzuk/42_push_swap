@@ -6,7 +6,7 @@
 #    By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 00:50:45 by akisuzuk          #+#    #+#              #
-#    Updated: 2023/12/17 15:55:24 by akisuzuk         ###   ########.fr        #
+#    Updated: 2023/12/30 16:53:31 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ RM = rm -f
 PROGRAM = push_swap
 
 SRCS = ./srcs/push_swap.c		\
-		./srcs/ps_make_list.c	\
+		./srcs/ps_make_list.c#	\
 		./srcs/ps_actions.c		\
 		./srcs/ps_sort.c
 

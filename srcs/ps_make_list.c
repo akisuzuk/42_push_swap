@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:22:02 by akisuzuk          #+#    #+#             */
-/*   Updated: 2023/12/29 16:57:12 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2023/12/30 17:50:15 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_list_push_front(t_ps_list **ex_list, void *data)
 	*ex_list = front_elem;
 }
 
-void	ft_list_push_back(t_ps_list **ex_list, void *data)
+void	ft_list_push_back(t_ps_list **ex_list, int data)
 {
 	t_ps_list	*back_elem;
 	t_ps_list	*last;
