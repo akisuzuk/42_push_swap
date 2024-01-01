@@ -6,19 +6,20 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 00:59:14 by akisuzuk          #+#    #+#             */
-/*   Updated: 2024/01/02 01:55:58 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2024/01/01 22:11:15 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 // これ、pscine CPC12とかlibftのボーナスでやったリストの話っすね
 // argvをatoiしてint変数に格納
 // まずargcから変数の数を把握して、格納するリストのサイズを確定してmalloc
 
-static t_ps_list	*make_stc_a(int c, char **v)
+t_ps_list	*make_stc_a(int c, char **v)
 {
 	int			i;
+	int			atoied_num;
 	t_ps_list	*ret;
 
 	i = 0;
@@ -27,7 +28,11 @@ static t_ps_list	*make_stc_a(int c, char **v)
 	ret = ft_create_elem(0);
 	while (i < c)
 	{
-		ft_list_push_back(&ret, ft_atoi(v[i]));
+		atoied_num = ft_atoi(v[i + 1]);
+		// check
+		printf("&(ft_atoi(v[i + 1])) is = %d\n", atoied_num);
+		// check
+		ft_list_push_back(&ret, &atoied_num);
 		i++;
 		if (i + 1 == c)
 		{
@@ -70,7 +75,7 @@ int	main(int argc, char **argv)
 	temp = (*stc_a).next;
 	while (temp != NULL)
 	{
-		printf("stc_a list value = :%d\n", (*temp).value);
+		printf("stc_a list value = :%d\n", *(int *)((*temp).value));
 		temp = (*temp).next;
 	}
 

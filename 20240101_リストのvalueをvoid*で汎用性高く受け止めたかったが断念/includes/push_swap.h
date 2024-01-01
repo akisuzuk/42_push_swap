@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 01:00:58 by akisuzuk          #+#    #+#             */
-/*   Updated: 2024/01/02 01:58:24 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2024/01/01 21:45:38 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,22 @@
 # include <stdarg.h>
 # include <fcntl.h>
 # include <signal.h>
-//# include "../libft/libft.h"
+# include "libft.h"
 
 typedef struct s_ps_list
 {
 	struct s_ps_list	*prev;
 	struct s_ps_list	*next;
-	int					value;
+	int					*value;
 }	t_ps_list;
 
 int			ft_atoi(const char *str);
-int			ft_isdigit(int c);
-
 t_ps_list	*ft_create_elem(int num);
-void		ft_list_push_front(t_ps_list **ex_list, int data);
-void		ft_list_push_back(t_ps_list **ex_list, int data);
-int			ft_list_size(t_ps_list *ex_list);
-t_ps_list	*ft_last_list(t_ps_list *ex_list);
+void		ft_list_push_front(t_ps_list **ex_list, void *data);
+void		ft_list_push_back(t_ps_list **ex_list, void *data);
+int			ft_ps_list_size(t_ps_list *ex_list);
+t_ps_list	*ft_ps_last_list(t_ps_list *ex_list);
 void		ft_make_circular(t_ps_list *ex_list);
 void		ft_clear_circular_list(t_ps_list *ex_list);
 
-#endif //_INCLUDE_LIBFT_H__
+#endif

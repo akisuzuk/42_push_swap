@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:22:02 by akisuzuk          #+#    #+#             */
-/*   Updated: 2024/01/02 01:52:34 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2024/01/01 22:14:05 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ t_ps_list	*ft_create_elem(int num)
 		exit(1);
 	(*ret).prev = NULL;
 	(*ret).next = NULL;
-	(*ret).value = num;
+	(*ret).value = &num;
 	return (ret);
 	// もし最後の要素だったら、先頭のノードのprevに最後のノードを割り当てる
 }
 
-void	ft_list_push_front(t_ps_list **ex_list, int data)
+void	ft_list_push_front(t_ps_list **ex_list, void *data)
 {
 	t_ps_list	*front_elem;
 
@@ -35,19 +35,7 @@ void	ft_list_push_front(t_ps_list **ex_list, int data)
 	*ex_list = front_elem;
 }
 
-t_ps_list	*ft_last_list(t_ps_list *ex_list)
-{
-	t_ps_list	*prev_list;
-
-	while (ex_list != NULL)
-	{
-		prev_list = ex_list;
-		ex_list = (*ex_list).next;
-	}
-	return (prev_list);
-}
-
-void	ft_list_push_back(t_ps_list **ex_list, int data)
+void	ft_list_push_back(t_ps_list **ex_list, void *data)
 {
 	t_ps_list	*back_elem;
 	t_ps_list	*last;
@@ -68,6 +56,18 @@ int	ft_list_size(t_ps_list *ex_list)
 		cnt++;
 	}
 	return (cnt);
+}
+
+t_ps_list	*ft_last_list(t_ps_list *ex_list)
+{
+	t_ps_list	*prev_list;
+
+	while (ex_list != NULL)
+	{
+		prev_list = ex_list;
+		ex_list = (*ex_list).next;
+	}
+	return (prev_list);
 }
 
 // 上のft_list_last使えば循環リスト行けそう、最初のノードをtempに入れといて
