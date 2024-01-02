@@ -6,7 +6,7 @@
 #    By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 00:50:45 by akisuzuk          #+#    #+#              #
-#    Updated: 2024/01/02 02:02:51 by akisuzuk         ###   ########.fr        #
+#    Updated: 2024/01/02 15:19:57 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME= push_swap
 CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
+#DEBUG = -g -fsanitize=address  -fsanitize=undefined
 
 LIB_DIR = ./libft
 LIB = ./libft/libft.a
@@ -37,7 +38,8 @@ $(LIB):
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(INC)
 
 $(NAME): $(OBJS) $(LIB)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIB) $^
+#	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIB) $^
+	$(CC) $(CFLAGS) -o $(NAME) $^
 
 
 clean :

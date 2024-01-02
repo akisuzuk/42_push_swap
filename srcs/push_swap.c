@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 00:59:14 by akisuzuk          #+#    #+#             */
-/*   Updated: 2024/01/02 01:55:58 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2024/01/02 16:01:30 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // argvをatoiしてint変数に格納
 // まずargcから変数の数を把握して、格納するリストのサイズを確定してmalloc
 
-static t_ps_list	*make_stc_a(int c, char **v)
+t_ps_list	*make_stc_a(int c, char **v)
 {
 	int			i;
 	t_ps_list	*ret;
@@ -27,10 +27,12 @@ static t_ps_list	*make_stc_a(int c, char **v)
 	ret = ft_create_elem(0);
 	while (i < c)
 	{
+		printf("LOOP make_stc_a\n");
 		ft_list_push_back(&ret, ft_atoi(v[i]));
 		i++;
 		if (i + 1 == c)
 		{
+			printf("make circular!\n");
 			// 循環リストにする
 			ft_make_circular(ret);
 		}
@@ -48,9 +50,9 @@ int	main(int argc, char **argv)
 	t_ps_list	*temp;
 
 	// 引数が条件を満たしているかチェック
-	i = 0;
+	i = 1;
 	j = 0;
-	while (i < argc - 1)
+	while (i < argc)
 	{
 		while (argv[i][j] != '\0')
 		{
@@ -62,13 +64,14 @@ int	main(int argc, char **argv)
 		}
 		i++;
 	}
+	printf("argc = %d\n", argc);
 	stc_a = make_stc_a (argc, argv);
 	// スタックb
 	//stc_b = make_stc_b (argc);
 
 	// リストの中身確認用
 	temp = (*stc_a).next;
-	while (temp != NULL)
+	while (temp != 0)
 	{
 		printf("stc_a list value = :%d\n", (*temp).value);
 		temp = (*temp).next;

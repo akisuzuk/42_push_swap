@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:22:02 by akisuzuk          #+#    #+#             */
-/*   Updated: 2024/01/02 01:52:34 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2024/01/02 15:59:48 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_ps_list	*ft_create_elem(int num)
 {
 	t_ps_list	*ret;
 
+	printf("START ft_create_elem\n");
 	ret = (t_ps_list *)malloc(sizeof(t_ps_list));
 	if (ret == NULL)
 		exit(1);
@@ -39,8 +40,15 @@ t_ps_list	*ft_last_list(t_ps_list *ex_list)
 {
 	t_ps_list	*prev_list;
 
+	printf("START ft_last_list\n");
+	if (ex_list == NULL)
+	{
+		printf("ex_list is NULL\n");
+		return (NULL);
+	}
 	while (ex_list != NULL)
 	{
+		printf("LOOP ft_last_list\n");
 		prev_list = ex_list;
 		ex_list = (*ex_list).next;
 	}
@@ -52,6 +60,7 @@ void	ft_list_push_back(t_ps_list **ex_list, int data)
 	t_ps_list	*back_elem;
 	t_ps_list	*last;
 
+	printf("START ft_list_push_back\n");
 	back_elem = ft_create_elem(data);
 	last = ft_last_list(*ex_list);
 	(*last).next = back_elem;
