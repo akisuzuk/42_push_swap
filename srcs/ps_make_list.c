@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:22:02 by akisuzuk          #+#    #+#             */
-/*   Updated: 2024/01/02 15:59:48 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2024/01/02 16:15:19 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_ps_list	*ft_create_elem(int num)
 	(*ret).next = NULL;
 	(*ret).value = num;
 	return (ret);
-	// もし最後の要素だったら、先頭のノードのprevに最後のノードを割り当てる
 }
 
 void	ft_list_push_front(t_ps_list **ex_list, int data)
@@ -39,6 +38,7 @@ void	ft_list_push_front(t_ps_list **ex_list, int data)
 t_ps_list	*ft_last_list(t_ps_list *ex_list)
 {
 	t_ps_list	*prev_list;
+	t_ps_list	*start;
 
 	printf("START ft_last_list\n");
 	if (ex_list == NULL)
@@ -46,7 +46,8 @@ t_ps_list	*ft_last_list(t_ps_list *ex_list)
 		printf("ex_list is NULL\n");
 		return (NULL);
 	}
-	while (ex_list != NULL)
+	start = ex_list;
+	while (ex_list != start)
 	{
 		printf("LOOP ft_last_list\n");
 		prev_list = ex_list;
