@@ -6,7 +6,7 @@
 #    By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 00:50:45 by akisuzuk          #+#    #+#              #
-#    Updated: 2024/01/07 13:25:23 by akisuzuk         ###   ########.fr        #
+#    Updated: 2024/01/07 13:42:26 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ NAME= push_swap
 CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
-#DEBUG = -g -fsanitize=address  -fsanitize=undefined
+# -gオプションつけてれば、実行時にデバッガを起動可能
+# gdb ./a.out で実行して
+# run 引数1 引数2... コマンドでプログラムを動かす
+DEBUG = -g -fsanitize=address  -fsanitize=undefined
 
 LIB_DIR = ./libft
 LIB = ./libft/libft.a
