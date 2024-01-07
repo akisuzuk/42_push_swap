@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 00:50:45 by akisuzuk          #+#    #+#              #
-#    Updated: 2024/01/02 15:19:57 by akisuzuk         ###   ########.fr        #
+#    Updated: 2024/01/07 13:25:23 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,11 @@ $(LIB):
 	$(MAKE) -C ./libft
 
 .c.o :
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(INC)
+	$(CC) $(CFLAGS) $(DEBUG) -c $< -o $(<:.c=.o) $(INC)
 
 $(NAME): $(OBJS) $(LIB)
 #	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIB) $^
-	$(CC) $(CFLAGS) -o $(NAME) $^
+	$(CC) $(CFLAGS) $(DEBUG) -o $(NAME) $^
 
 
 clean :
