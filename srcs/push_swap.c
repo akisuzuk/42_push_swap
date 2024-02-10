@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akisuzuk <akisuzuk@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 00:59:14 by akisuzuk          #+#    #+#             */
-/*   Updated: 2024/01/02 16:01:30 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:07:44 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,23 @@ t_ps_list	*make_stc_a(int c, char **v)
 	int			i;
 	t_ps_list	*ret;
 
-	i = 0;
+	i = 1;
 	// 先頭は番兵ノード
 	// 番兵ノードとわかるようにnull入れたけど、素直にprevとnextだけ持ってる構造体にした方がいいかも。。。
 	ret = ft_create_elem(0);
 	while (i < c)
 	{
 		printf("LOOP make_stc_a\n");
+		printf("i=%d, c=%d\n", i, c);
 		ft_list_push_back(&ret, ft_atoi(v[i]));
-		i++;
 		if (i + 1 == c)
 		{
 			printf("make circular!\n");
 			// 循環リストにする
+			// と思ったけど、複雑化しそうならナシでいいかも
 			ft_make_circular(ret);
 		}
+		i++;
 	}
 	return (ret);
 }
@@ -51,16 +53,17 @@ int	main(int argc, char **argv)
 
 	// 引数が条件を満たしているかチェック
 	i = 1;
-	j = 0;
 	while (i < argc)
 	{
+		j = 0;
 		while (argv[i][j] != '\0')
 		{
-			if (ft_isdigit(argv[i][j++]) == 0)
+			if (ft_isdigit(argv[i][j]) == 0)
 			{
 				write(2, "Error: Non-numeric values included.\n", 36);
 				exit (1);
 			}
+			j++;
 		}
 		i++;
 	}
@@ -70,11 +73,15 @@ int	main(int argc, char **argv)
 	//stc_b = make_stc_b (argc);
 
 	// リストの中身確認用
-	temp = (*stc_a).next;
-	while (temp != 0)
+	//temp = (*stc_a).next;
+	temp = stc_a;
+	printf("--------------------------------\n");
+	i = 0;
+	while (temp != NULL && i < 20)
 	{
 		printf("stc_a list value = :%d\n", (*temp).value);
 		temp = (*temp).next;
+		i++;
 	}
 
 	free(stc_a);
