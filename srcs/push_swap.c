@@ -6,7 +6,7 @@
 /*   By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 00:59:14 by akisuzuk          #+#    #+#             */
-/*   Updated: 2024/02/10 18:07:44 by akisuzuk         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:23:18 by akisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ t_ps_list	*make_stc_a(int c, char **v)
 		ft_list_push_back(&ret, ft_atoi(v[i]));
 		if (i + 1 == c)
 		{
+			printf("list_size = %d\n", ft_list_size(ret));	
 			printf("make circular!\n");
 			// 循環リストにする
-			// と思ったけど、複雑化しそうならナシでいいかも
+			// と思ったけど、複雑化しそうならナシでいいかも。このif文まるっとCOでOK
 			ft_make_circular(ret);
 		}
 		i++;
@@ -83,6 +84,8 @@ int	main(int argc, char **argv)
 		temp = (*temp).next;
 		i++;
 	}
+
+
 
 	free(stc_a);
 	//free(stc_b);
