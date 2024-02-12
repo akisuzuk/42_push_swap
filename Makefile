@@ -6,7 +6,7 @@
 #    By: akisuzuk <akisuzuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 00:50:45 by akisuzuk          #+#    #+#              #
-#    Updated: 2024/01/07 13:42:26 by akisuzuk         ###   ########.fr        #
+#    Updated: 2024/02/12 17:46:56 by akisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ LIB_DIR = ./libft
 LIB = ./libft/libft.a
 SRC_DIR = ./srcs
 SRCS = ./srcs/push_swap.c		\
-		./srcs/ps_make_list.c
-#		./srcs/ps_actions.c
+		./srcs/ps_make_list.c	\
+		./srcs/ps_actions.c
 #		./srcs/ps_sort.c
 OBJS = $(SRCS:.c=.o)
 
